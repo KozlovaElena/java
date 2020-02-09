@@ -22,6 +22,11 @@ public class GetRichestUserService {
 		this.userDao = new UserDao();
 	}
 
+	public GetRichestUserService(AccountDao accountDao, UserDao userDao) {
+		this.accountDao = accountDao;
+		this.userDao = userDao;
+	}
+
 	public User getRichestUser() throws ServiceException {
 
 		List<Account> accountList;
@@ -46,6 +51,10 @@ public class GetRichestUserService {
 		for (Map.Entry<Integer, Integer> entry : userMoneyMap.entrySet()) {
 			UserMoney userMoney = new UserMoney(entry.getKey(), entry.getValue());
 			userMoneysorted.add(userMoney);
+		}
+
+		if (userMoneysorted.isEmpty()) {
+			return null;
 		}
 
 		UserMoney richestUser = userMoneysorted.last();

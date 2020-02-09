@@ -7,9 +7,17 @@ import by.kozlova.userbanklist.dao.AccountDao;
 import by.kozlova.userbanklist.dao.DaoException;
 
 public class GetAccountSumService {
-	public int getAccountSum() throws ServiceException {
-		AccountDao accountDao = new AccountDao();
+	private AccountDao accountDao;
 
+	public GetAccountSumService() {
+		this.accountDao = new AccountDao();
+	}
+
+	public GetAccountSumService(AccountDao accountDao) {
+		this.accountDao = accountDao;
+	}
+
+	public int getAccountSum() throws ServiceException {
 		List<Account> accountlist;
 		try {
 			accountlist = accountDao.getAll();

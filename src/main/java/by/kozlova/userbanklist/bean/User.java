@@ -31,6 +31,10 @@ public class User implements Serializable { // todo serial version ID???
 		return id;
 	}
 
+	public void setId(int id) {
+		this.id = id;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
