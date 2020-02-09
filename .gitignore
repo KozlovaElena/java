@@ -1,7 +1,7 @@
-build/
-target/
+build/*
+target/*
 .idea/
-.settings/
+.settings/*
 .classpath
 .project
 *.iml
